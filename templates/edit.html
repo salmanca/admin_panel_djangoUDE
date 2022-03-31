@@ -1,0 +1,53 @@
+{% extends 'base.html'%}
+
+
+{% block title %}Edit Items{%endblock%}
+
+{% block contents %}
+<div class='container'>
+    <div class='row justify-content-center m-5'>
+      <div class='col-lg-6 p-5 shadow shadow-lg'>
+        {%if messages %}
+        {% for message in messages %}
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong>{{ message }}</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {%endfor%}
+        {%endif%}
+  <form action ="" method='post' id="edit_user">
+    {% csrf_token %}
+    <div class='container text-center'><h3 class='h3 my-4'>EDIT USER</h3></div>
+      <div class="mb-3">
+        <label for="first_name" class="form-label">First Name</label>
+        <input type="text" class="form-control" value='{{details.first_name}}' name="first_name" aria-describedby="emailHelp">
+      </div>
+      <div class="mb-3">
+          <label for="last_name" class="form-label">Last Name</label>
+          <input type="text" class="form-control" value='{{details.last_name}}' name="last_name" aria-describedby="emailHelp">
+      </div>
+      <div class="mb-3">
+        <label for="Username" class="form-label">Username</label>
+        <input type="text" class="form-control" value='{{details.username}}' name="username" aria-describedby="emailHelp">
+    </div>
+      <div class="mb-3">
+          <label for="Email" class="form-label">Email address</label>
+          <input type="email" class="form-control" value='{{details.email}}' name="email" aria-describedby="emailHelp">
+      </div>
+      <div class="mb-3">
+        <label for="Password1" class="form-label">Password</label>
+        <input type="password" class="form-control" name="password1">
+      </div>
+      <div class="mb-3">
+          <label for="Password2" class="form-label">Password</label>
+          <input type="password" class="form-control" name="password2">
+      </div>
+      <div class='container text-center'>
+      <button type="submit" class="btn btn-primary text-center">EDIT</button>
+      </div>
+    </form>
+  </div>
+  </div>
+  </div>
+  
+{% endblock %}

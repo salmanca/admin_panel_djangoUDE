@@ -1,0 +1,49 @@
+{% extends 'base.html'%}
+{% load static%}
+
+
+
+{% block title %}Home{%endblock%}
+
+{% block contents %}
+{% for message in messages %}
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+  <strong>{{ message }}</strong>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{%endfor%}
+<div class="container-fluid">
+  <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="{% static '4.jpg' %}" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="{% static '3.jpg' %}" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="{% static '5.jpg' %}" class="d-block w-100" alt="...">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+    {% comment %} <div class="row">
+{% for user in users%}
+<div class="col-lg-2">
+<div class="card bg-primary" style="height: 5rem">
+    <div class="card-body">
+      <h5 class="card-title">{{ user.username }}</h5>
+    </div>
+  </div> {% endcomment %}
+</div>
+{% comment %} {% endfor %} {% endcomment %}
+</div>
+</div>
+{% endblock %}

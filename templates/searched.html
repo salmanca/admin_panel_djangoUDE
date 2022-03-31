@@ -1,0 +1,16 @@
+{% extends 'base.html'%}
+{% block title %}Results{%endblock%}
+{% block contents %}
+<div class="container">
+<h1>Matched Users</h1>
+{% for item in items%}
+<ul class="list-group">
+    <li class="list-group-item">User name : {{item.username}}</li>
+    <li class="list-group-item">Email : {{item.email}}</li>
+    <li class="list-group-item">First name : {{item.first_name}}</li>
+    <li class="list-group-item mb-3">Last name : {{item.last_name}}</li>
+  </ul>
+  <a href="{% url 'edit' item.id %}" class="btn btn-primary mb-3">Edit</a>
+  <a href="{% url 'delet' item.id %}" class="btn btn-danger mb-3">Delete</a>
+  {%endfor%}
+{% endblock %}

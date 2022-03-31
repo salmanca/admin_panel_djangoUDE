@@ -1,0 +1,28 @@
+{% extends 'base.html'%}
+
+
+
+{% block title %}View{%endblock%}
+
+{% block contents %}
+<div class="container">
+<div class="row mt-5">
+{% for user in users%}
+{% if user.is_superuser %}
+
+{%else%}
+<div class="col-lg-4">
+    <ul class="list-group">
+        <li class="list-group-item">Username: {{ user.username}}</li>
+        <li class="list-group-item">Email: {{ user.email}}</li>
+        <li class="list-group-item">Firs Name: {{ user.first_name}}</li>
+        <li class="list-group-item">Last Name: {{ user.last_name}}</li>
+      </ul>
+    <a href="{% url 'edit' user.id %}" class="btn btn-primary my-3">Edit</a>
+    <a href="{% url 'delet' user.id %}" class="btn btn-danger my-3">Delete</a>
+</div>
+{% endif %}
+{% endfor %}
+</div>
+</div>
+{% endblock %}
